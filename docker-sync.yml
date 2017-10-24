@@ -1,0 +1,16 @@
+version: 2
+syncs:
+  rails_start_app_volume:
+    src: './'
+    sync_strategy: 'unison'
+    sync_host_ip: '127.0.0.1'
+
+    sync_host_port: 10857
+    sync_excludes_type: 'Name'
+
+    sync_excludes: ['docker*', 'docker*yml', 'Dockerfile', '.DS_Store', '.git*', '.idea', '.docker-sync', 'init.sh', '.docker/template/*', '*.iml' ]
+
+    watch_args: '-v'
+
+    watch_excludes: ['.*/.git']
+    watch_strategy: 'fswatch'

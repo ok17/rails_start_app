@@ -1,0 +1,4 @@
+group :development, :staging, :test do
+  gem 'ruby-debug-ide'
+  gem 'debase'
+end
