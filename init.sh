@@ -20,6 +20,9 @@ docker-compose run --rm app bundle install
 # To make api specification, give --api
 docker-compose run --rm app rails new . --force --database=mysql --skip-git --skip-test
 
+# Synchronize with the host side locally
+docker-sync sync
+
 cat <<EOF >> Gemfile
 group :development, :staging, :test do
   gem 'ruby-debug-ide'
@@ -31,13 +34,10 @@ docker-compose run --rm app bundle install
 
 cp .docker/template/database.yml config/
 
-# Synchronize with the host side locally
-docker-sync sync
 
 # [db:create] does not have to be executed because it was generated at the time of [docker-compose run] execution
 #docker-compose run --rm app db:create
-docker-compse run --rm app db:migrae
-
+docker-compse run --rm rails app db:migrae
 
 # git init
 if [ -d ./.git ]; then
