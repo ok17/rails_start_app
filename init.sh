@@ -23,6 +23,8 @@ docker-compose run --rm app rails new . --force --database=mysql --skip-git --sk
 # Synchronize with the host side locally
 docker-sync sync
 
+sleep 5
+
 cat <<EOF >> Gemfile
 group :development, :staging, :test do
   gem 'ruby-debug-ide'

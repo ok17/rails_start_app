@@ -11,7 +11,7 @@
 
 1. `git clone`
 2. `cd [dir]`
-3. `init.sh [project name]`実行
+3. `init.sh`実行
 4. `.docker/template/rubymine_debug`に内容を`Gemfile`へ追記
 5. `docker-compose run --rm app bundle install`
 5. `boot.sh`実行`
